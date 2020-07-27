@@ -29,33 +29,14 @@ class EnterSys {
             }
         }
         int id = Integer.parseInt(scanString);
-//        Integer id = scannerFirst.nextInt();
-//        while (true){
-//            if (id == 1){
-//                Admin admin = new Admin();
-//            }else if(id == 2){
-//                User user = new User();
-//                if(user.achive() == 0){
-//                    System.out.println("请输入您的身份 : ");
-//                    System.out.println("1->管理员  2->普通用户  0->退出");
-//                    enterSys();
-//
-//                }
-//            }else if(id == 0){
-//                return;
-//            }else{
-//                System.out.println("----------   ");
-//                System.out.println("请重新输入正确数字!!!");
-//                enterSys();
-//            }
-//        }
+
         // 主要登录实现  作为身份登录接口
         switch (id) {
             case 1 :
                 // 将最新的data:热搜排行榜 && 用户票数 && 购买热搜最低消费 传入
                 Admin admin = new Admin(data,userPoll,topHotMoney);
                 // 如果用户选择的是退出当前身份  那么更新数据 重新进入身份选择
-                if(admin.achiveAdmin() == 0){
+                if(admin.achieveAdmin() == 0){
                     userPoll = admin.backPollsAdmin();
                     topHotMoney = admin.backMoneyAdmin();
                     System.out.println("请输入您的身份 : ");
@@ -65,7 +46,7 @@ class EnterSys {
                 break;
             case 2 :
                 User user = new User(data,userPoll,topHotMoney);
-                if(user.achive() == 0){
+                if(user.achieve() == 0){
                     userPoll = user.backPolls();
                     topHotMoney = user.backMoney();
                     System.out.println("请输入您的身份 : ");

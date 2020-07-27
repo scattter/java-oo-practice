@@ -62,7 +62,7 @@ class Admin extends User{
     }
 
     // 主要逻辑功能实现  作为执行接口  调用基础函数实现各个功能
-    public Integer achiveAdmin() {
+    public Integer achieveAdmin() {
         System.out.println(this.name+" 请输入您想要实现功能的数字");
         System.out.println("1 -> 查看热搜排行榜");
         System.out.println("2 -> 添加热搜");
@@ -76,17 +76,17 @@ class Admin extends User{
             if(require == 1){
                 watchHot(this.rankAdmin);
                 // 查看热搜完毕后 重新进入achieveAdmin函数 持续性提供服务
-                this.achiveAdmin();
+                this.achieveAdmin();
                 break;
             // 添加热搜
             }else if (require == 2){
                 addHot(this.rankAdmin);
-                this.achiveAdmin();
+                this.achieveAdmin();
                 break;
             // 添加超级热搜  此处Admin自己构造一个
             }else if (require == 3){
                 addSuperHot(this.rankAdmin);
-                this.achiveAdmin();
+                this.achieveAdmin();
                 break;
             // 如果按键为0 即选择退出当前身份 返回EnterSys类  主界面
             }else if (require == 0) {

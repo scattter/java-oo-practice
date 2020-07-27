@@ -1,8 +1,6 @@
 package com.twu;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 class User {
 
@@ -67,7 +65,7 @@ class User {
     }
 
     // 函数调用  实现具体功能
-    public Integer achive(){
+    public Integer achieve(){
         System.out.println(this.name+" 请输入您想要实现功能的数字");
         System.out.println("1 -> 查看热搜排行榜");
         System.out.println("2 -> 给热搜事件投票");
@@ -75,75 +73,32 @@ class User {
         System.out.println("4 -> 过路人添加热搜");
         System.out.println("0 -> 退出当前身份");
 
-//        Scanner scanSecond = new Scanner(System.in);
 
-//        if(!scanSecond.toString().matches("[0-9]")){
-//            System.out.println("请输入正确的单位数字");
-//            return 0;
-//        }
-//        Integer require = scanSecond.nextInt();
-
-        // 判断输入命令是否规范正确
-//        String scanString = scanSecond.next();
-//        System.out.println();
-//        while(true){
-////            scannerFirst = new Scanner(System.in);
-//            if (scanString.matches("[0-5]")){
-//                break;
-//            }else{
-//                System.out.println("请输入正确的命令");
-//                scanSecond = new Scanner(System.in);
-//                scanString = scanSecond.next();
-//            }
-//        }
-//        int require = Integer.parseInt(scanString);
-//        String str = "[0-9]";
-        // 验证用户输入是否规范  输入0-5之间的任意一个数字  require确定用户功能需求
         int require = Integer.parseInt(isStandard("[0-5]"));
-        // System.out.println();
-//        switch (require) {
-//            case 1 :
-//                watchHot(this.rank);
-//                break;
-//            case 2 :
-//                voteHot();
-//                break;
-//            case 3 :
-//                buyHot();
-//                break;
-//            case 4 :
-//                addHot(this.rank);
-//                break;
-//            case 0 :
-//                System.out.println("---------");
-//                break;
-//            default:
-//                System.out.println("请输入您的正确需求");
-//                achive();
-//        }
+
         while (true){
             if(require == 1){
                 watchHot(this.rank);
                 // 执行完后重新进入功能选择
-                achive();
+                achieve();
                 break;
             }else if (require == 2){
                 voteHot();
-                achive();
+                achieve();
                 break;
             }else if (require == 3){
                 buyHot();
-                achive();
+                achieve();
                 break;
             }else if (require == 4){
                 addHot(this.rank);
-                achive();
+                achieve();
                 break;
             }else if (require == 0){
                 break;
             }else {
                 System.out.println("请输入您的需求");
-                achive();
+                achieve();
             }
         }
         // 默认返回0 退出当前身份
